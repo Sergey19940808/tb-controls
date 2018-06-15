@@ -1,0 +1,34 @@
+.slider {
+    float: left;
+    margin-right: 40px;
+}
+
+.slider__value {
+    display: inline;
+    position: relative;
+    top: 4px;
+    left: 2px;
+}
+
+.slider__input {
+    -webkit-appearance: none;
+    border-radius:2px;
+    height:0px;
+    border:1px solid mediumpurple;
+}
+
+.slider__input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width:18px;
+    height:18px;
+    background:#D4D4D4;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.1s;
+}
+
+.slider__input::-webkit-slider-thumb:hover,
+.slider__input::-webkit-slider-thumb:active{
+    width:24px;
+    height:24px;
+}
