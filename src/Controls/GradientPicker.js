@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './GradientPicker.css';
+import Color from "./Color";
 
 class GradientPicker extends Component {
     constructor(props) {
@@ -16,9 +17,26 @@ class GradientPicker extends Component {
         this.setState({args: ['to top', 'black', 'yellow']})
     }
 
-    handleSelectColor(e){
+    handleAddColor(e) {
+        let isAdd;
+        isAdd = this.state.colors.indexOf(e.target.value);
+
+        if (isAdd === -1 && this.state.colors.length <= 6) this.setState({colors: this.state.colors.concat(e.target.value)});
+        else if (isAdd === 0) return false;
+    }
+
+    handleSelectGradient() {
+        this.setState({colors: []});
+        let input = document.querySelector('input[type=radio]:checked').value;
+        let arrArgs = [input];
+        this.state.colors.map((i)=>{
+            arrArgs.push(i)
+        });
+        this.setState({args: arrArgs});
 
     }
+
+
 
     render() {
         return (
@@ -26,7 +44,7 @@ class GradientPicker extends Component {
 
             <div className='gradient-picker'>
                 <div className='gradient-picker__select-colors'>
-                    <select>
+                    <select onChange={this.handleAddColor.bind(this)} multiple>
                         <option>aliceblue</option>
                         <option>antiquewhite</option>
                         <option>aqua</option>
@@ -35,7 +53,7 @@ class GradientPicker extends Component {
                         <option>beige</option>
                         <option>bisque</option>
                         <option>black</option>
-                        <option>blanche­dalmond</option>
+                        <option>blanchedalmond</option>
                         <option>blue</option>
                         <option>blueviolet</option>
                         <option>brown</option>
@@ -44,13 +62,13 @@ class GradientPicker extends Component {
                         <option>chartreuse</option>
                         <option>chocolate</option>
                         <option>coral</option>
-                        <option>corn­flowerblue</option>
+                        <option>cornflowerblue</option>
                         <option>cornsilk</option>
                         <option>crimson</option>
                         <option>cyan</option>
                         <option>darkblue</option>
                         <option>darkcyan</option>
-                        <option>dark­goldenrod</option>
+                        <option>darkgoldenrod</option>
                         <option>darkgray</option>
                         <option>darkgreen</option>
                         <option>darkkhaki</option>
@@ -60,18 +78,18 @@ class GradientPicker extends Component {
                         <option>darkorchid</option>
                         <option>darkred</option>
                         <option>darksalmon</option>
-                        <option>dark­seagreen</option>
-                        <option>darkslate­blue</option>
-                        <option>darkslate­gray</option>
-                        <option>dark­turquoise</option>
+                        <option>darkseagreen</option>
+                        <option>darkslateblue</option>
+                        <option>darkslategray</option>
+                        <option>darkturquoise</option>
                         <option>darkviolet</option>
                         <option>deeppink</option>
-                        <option>deepsky­blue</option>
+                        <option>deepskyblue</option>
                         <option>dimgray</option>
                         <option>dodgerblue</option>
                         <option>firebrick</option>
-                        <option>floral­white</option>
-                        <option>forest­green</option>
+                        <option>floralwhite</option>
+                        <option>forestgreen</option>
                         <option>fuchsia</option>
                         <option>gainsboro</option>
                         <option>ghostwhite</option>
@@ -79,7 +97,7 @@ class GradientPicker extends Component {
                         <option>goldenrod</option>
                         <option>gray</option>
                         <option>green</option>
-                        <option>green­yellow</option>
+                        <option>greenyellow</option>
                         <option>honeydew</option>
                         <option>hotpink</option>
                         <option>indianred</option>
@@ -87,41 +105,41 @@ class GradientPicker extends Component {
                         <option>ivory</option>
                         <option>khaki</option>
                         <option>lavender</option>
-                        <option>lavender­blush</option>
+                        <option>lavenderblush</option>
                         <option>lawngreen</option>
-                        <option>lemon­chiffon</option>
+                        <option>lemonchiffon</option>
                         <option>lightblue</option>
                         <option>lightcoral</option>
                         <option>lightcyan</option>
-                        <option>lightgolden­rodyellow</option>
+                        <option>lightgoldenrodyellow</option>
                         <option>lightgray</option>
                         <option>lightgreen</option>
                         <option>lightpink</option>
                         <option>lightsalmon</option>
-                        <option>light­seagreen</option>
-                        <option>light­skyblue</option>
-                        <option>light­slategray</option>
-                        <option>lightsteel­blue</option>
-                        <option>light­yellow</option>
+                        <option>lightseagreen</option>
+                        <option>lightskyblue</option>
+                        <option>lightslategray</option>
+                        <option>lightsteelblue</option>
+                        <option>lightyellow</option>
                         <option>lime</option>
                         <option>limegreen</option>
                         <option>linen</option>
                         <option>magenta</option>
                         <option>maroon</option>
-                        <option>mediumaqua­marine</option>
+                        <option>mediumaquamarine</option>
                         <option>mediumblue</option>
-                        <option>medium­orchid</option>
-                        <option>medium­purple</option>
-                        <option>medium­seagreen</option>
-                        <option>medium­slateblue</option>
-                        <option>medium­springgreen</option>
-                        <option>medium­turquoise</option>
-                        <option>medium­violetred</option>
+                        <option>mediumorchid</option>
+                        <option>mediumpurple</option>
+                        <option>mediumseagreen</option>
+                        <option>mediumslateblue</option>
+                        <option>mediumspringgreen</option>
+                        <option>mediumturquoise</option>
+                        <option>mediumvioletred</option>
                         <option>midnightblue</option>
                         <option>mintcream</option>
                         <option>mistyrose</option>
                         <option>moccasin</option>
-                        <option>navajo­white</option>
+                        <option>navajowhite</option>
                         <option>navy</option>
                         <option>oldlace</option>
                         <option>olive</option>
@@ -129,21 +147,21 @@ class GradientPicker extends Component {
                         <option>orange</option>
                         <option>orangered</option>
                         <option>orchid</option>
-                        <option>pale­goldenrod</option>
+                        <option>palegoldenrod</option>
                         <option>palegreen</option>
-                        <option>pale­turquoise</option>
-                        <option>pale­violetred</option>
+                        <option>paleturquoise</option>
+                        <option>palevioletred</option>
                         <option>papayawhip</option>
                         <option>peachpuff</option>
                         <option>peru</option>
                         <option>pink</option>
                         <option>plum</option>
-                        <option>powder­blue</option>
+                        <option>powderblue</option>
                         <option>purple</option>
                         <option>red</option>
                         <option>rosybrown</option>
                         <option>royalblue</option>
-                        <option>saddle­brown</option>
+                        <option>saddlebrown</option>
                         <option>salmon</option>
                         <option>sandybrown</option>
                         <option>seagreen</option>
@@ -154,7 +172,7 @@ class GradientPicker extends Component {
                         <option>slateblue</option>
                         <option>slategray</option>
                         <option>snow</option>
-                        <option>spring­green</option>
+                        <option>springgreen</option>
                         <option>steelblue</option>
                         <option>tan</option>
                         <option>teal</option>
@@ -166,12 +184,11 @@ class GradientPicker extends Component {
                         <option>white</option>
                         <option>whitesmoke</option>
                         <option>yellow</option>
-                        <option>yellow­green</option>
+                        <option>yellowgreen</option>
                     </select>
                 </div>
                 <div className='gradient-picker__container'
                     style={{ background: `linear-gradient(${this.state.args})` }}
-                     onClick={this.handleSelectColor.bind(this)}
                 >
                 </div>
                 <div className='gradient-picker__checked'>
@@ -198,6 +215,33 @@ class GradientPicker extends Component {
                         <span className='gradient-picker__checkmark'></span>
                         Слева направо
                     </label>
+                </div>
+                <div className='gradient-picker__colors'>
+                    <p className='gradient-picker__title'>
+                        Добавьте минимум два цвета, максимум семь
+                    </p>
+                    <p className='gradient-picker__title'>
+                        Введите % распределения для цвета
+                    </p>
+                    <div className='gradient-picker__list-colors'>
+                        {
+                            this.state.colors.length > 0 ?
+                                this.state.colors.map((i)=>{
+                                    return (
+                                        <Color name={i} key={i} />
+                                    )
+                                }) : ""
+                        }
+                    </div>
+                    <button disabled={this.state.colors.length >= 2 ? false : true}
+                            className={this.state.colors.length >= 2 ?
+                                'gradient-picker__button' :
+                                'gradient-picker__button gradient-picker__button_disabled'
+                            }
+                            onClick={this.handleSelectGradient.bind(this)}
+                    >
+                        Показать
+                    </button>
                 </div>
             </div>
 

@@ -17,6 +17,7 @@
 }
 
 .gradient-picker__checked {
+    width: 405px;
     margin-top: 20px;
 
 }
@@ -42,13 +43,11 @@
     user-select: none;
 }
 
-/* Hide the browser's default radio button */
 .gradient-picker__item input {
     position: absolute;
     opacity: 0;
 }
 
-/* Create a custom radio button */
 .gradient-picker__checkmark {
     position: absolute;
     top: 0;
@@ -59,29 +58,24 @@
     border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
 .gradient-picker__item:hover input ~ .gradient-picker__checkmark {
     background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
 .gradient-picker__item input:checked ~ .gradient-picker__checkmark {
     background-color: #2196F3;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .gradient-picker__checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
 .gradient-picker__item input:checked ~ .gradient-picker__checkmark:after {
     display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .gradient-picker__item .gradient-picker__checkmark:after {
     top: 9px;
     left: 9px;
@@ -93,5 +87,88 @@
 
 .gradient-picker__select-colors {
     float: right;
-    margin-right: 280px;
+    margin-right: 100px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50 none;
+}
+
+.gradient-picker__select-colors {
+    position: relative;
+    display: block;
+    width: 20em;
+    height: 10em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 .5em;
+    color: #fff;
+    cursor: pointer;
+}
+select::-ms-expand {
+    display: none;
+}
+
+.gradient-picker__select-colors::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #34495e;
+    pointer-events: none;
+}
+
+.gradient-picker__select-colors:hover::after {
+    color: #9AB999;
+}
+.gradient-picker__select-colors::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+.gradient-picker__colors {
+    float: right;
+    margin-right: 90px;
+    margin-top: -330px;
+}
+
+.gradient-picker__title {
+    font-size: 17px;
+}
+
+.gradient-picker__button {
+    margin-top: 15px;
+    margin-left: 20px;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gradient-picker__button_disabled {
+    background-color: grey;
 }
